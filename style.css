@@ -16,7 +16,6 @@ body {
 }
 
 .game-container {
-    background: #1f6feb15;
     background-color: #161b22;
     border: 1px solid #30363d;
     padding: 24px;
@@ -48,7 +47,7 @@ h1 {
     box-shadow: inset 0 4px 12px rgba(0,0,0,0.8);
 }
 
-/* Идеальная подгонка фото, чтобы было видно лицо без искажений */
+/* Идеальное отображение ваших новых квадратных фото по центру */
 .character-wrapper img {
     width: 100%;
     height: 100%;

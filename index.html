@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Накорми героя Пельменей! 🥟</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <h1>Накорми героя Пельменей! 🥟</h1>
+        
+        <div class="character-wrapper">
+            <img id="character-img" src="assets/character_hungry.png" alt="Персонаж">
+            
+            <div class="status-overlay">
+                <span id="status-badge" class="badge hungry">Голоден 🤤</span>
+                <p id="speech-bubble">«Жду пельмени...»</p>
+            </div>
+
+            <div id="sleep-overlay" class="hidden">
+                <span class="zzz z1">Z</span>
+                <span class="zzz z2">z</span>
+                <span class="zzz z3">z</span>
+            </div>
+            <div id="eating-glow" class="hidden"></div>
+        </div>
+
+        <div class="progress-section">
+            <div class="progress-label">
+                <span>Сытость:</span>
+                <span id="fullness-percent">20%</span>
+            </div>
+            <div class="progress-bar">
+                <div id="fullness-fill" style="width: 20%;"></div>
+            </div>
+        </div>
+
+        <div class="controls">
+            <button class="food-btn" onclick="feed(25, 'пельмени')">
+                🥟 Пельмени (+25%)
+            </button>
+            <button class="food-btn" onclick="feed(35, 'шашлык')">
+                🍖 Шашлык (+35%)
+            </button>
+            <button class="food-btn" onclick="feed(15, 'сок')">
+                🧃 Сок (+15%)
+            </button>
+            <button id="sleep-btn" class="sleep-btn" onclick="toggleSleep()" disabled>😴 Поспать</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

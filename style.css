@@ -34,13 +34,14 @@ h1 { font-size: 1.4rem; margin-bottom: 20px; color: #58a6ff; }
     overflow: hidden;
     border: 4px solid #30363d;
 }
-
 .character-wrapper img {
     width: 100%;
     height: 100%;
-    object-fit: contain;
-    background-color: #0d1117;
+    object-fit: cover;
+    object-position: top center;
     transition: filter 0.3s ease;
+}
+
 
 .status-overlay {
     position: absolute;

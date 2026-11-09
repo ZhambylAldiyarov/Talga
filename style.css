@@ -50,11 +50,12 @@ h1 {
 
 /* Идеальная подгонка фото, чтобы было видно лицо без искажений */
 .character-wrapper img {
-    width: 40%;
-    height: 20%;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
-    object-position: top center;
+    object-position: 50% 20%;
     transition: filter 0.3s ease, transform 0.2s ease;
+
 }
 
 .status-overlay {

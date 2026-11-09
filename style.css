@@ -49,10 +49,10 @@ h1 {
 
 /* Идеальная посадка квадратных фото по центру */
 .character-wrapper img {
-    width: 100%;
+    width: 80%;
     height: 100%;
     object-fit: cover;
-    object-position: center;
+    object-position: top center;
     transition: filter 0.3s ease, transform 0.2s ease;
 }
 

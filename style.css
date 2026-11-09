@@ -50,8 +50,8 @@ h1 {
 
 /* Идеальная подгонка фото, чтобы было видно лицо без искажений */
 .character-wrapper img {
-    width: 50%;
-    height: 50%;
+    width: 40%;
+    height: 20%;
     object-fit: cover;
     object-position: top center;
     transition: filter 0.3s ease, transform 0.2s ease;

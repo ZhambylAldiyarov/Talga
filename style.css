@@ -38,9 +38,9 @@ h1 { font-size: 1.4rem; margin-bottom: 20px; color: #58a6ff; }
 .character-wrapper img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
+    background-color: #0d1117;
     transition: filter 0.3s ease;
-}
 
 .status-overlay {
     position: absolute;

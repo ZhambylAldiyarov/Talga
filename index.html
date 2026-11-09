@@ -11,7 +11,7 @@
         <h1>Накорми героя Пельменей! 🥟</h1>
         
         <div class="character-wrapper">
-            <img id="character-img" src="assets/character_hungry.png" alt="Персонаж">
+            <img id="character-img" src="character_hungry.png" alt="Персонаж">
             
             <div class="status-overlay">
                 <span id="status-badge" class="badge hungry">Голоден 🤤</span>
@@ -38,15 +38,17 @@
 
         <div class="controls">
             <button class="food-btn" onclick="feed(25, 'пельмени')">
-                🥟 Пельмени (+25%)
+                <span>🥟</span> Пельмени (+25%)
             </button>
             <button class="food-btn" onclick="feed(35, 'шашлык')">
-                🍖 Шашлык (+35%)
+                <span>🍖</span> Шашлык (+35%)
             </button>
             <button class="food-btn" onclick="feed(15, 'сок')">
-                🧃 Сок (+15%)
+                <span>🧃</span> Сок (+15%)
             </button>
-            <button id="sleep-btn" class="sleep-btn" onclick="toggleSleep()" disabled>😴 Поспать</button>
+            <button id="sleep-btn" class="sleep-btn" onclick="toggleSleep()" disabled>
+                <span>😴</span> Поспать
+            </button>
         </div>
     </div>
 

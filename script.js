@@ -3,9 +3,9 @@ let isSleeping = false;
 let eatingTimeout = null;
 
 const CHARACTER_STATES = {
-    hungry: 'character_hungry.png',
-    eating: 'character_eating.png',
-    sleeping: 'character_sleeping.png'
+    hungry: 'assets/character_hungry.png',
+    eating: 'assets/character_eating.png',
+    sleeping: 'assets/character_sleeping.png'
 };
 
 const phrases = {

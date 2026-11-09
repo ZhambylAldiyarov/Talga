@@ -1,107 +1,139 @@
 * {
     box-sizing: border-box;
-    margin: 0; padding: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0; 
+    padding: 0;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
 }
 
 body {
-    background: #0d1117;
-    color: #c9d1d9;
+    background: linear-gradient(135deg, #090d16 0%, #161b22 100%);
+    color: #e6edf3;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    padding: 15px;
 }
 
 .game-container {
-    background: #161b22;
-    padding: 25px;
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    background: #1f6feb15;
+    background-color: #161b22;
+    border: 1px solid #30363d;
+    padding: 24px;
+    border-radius: 24px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
     text-align: center;
-    max-width: 420px;
+    max-width: 400px;
     width: 100%;
+    backdrop-filter: blur(10px);
 }
 
-h1 { font-size: 1.4rem; margin-bottom: 20px; color: #58a6ff; }
+h1 {
+    font-size: 1.3rem;
+    margin-bottom: 18px;
+    color: #58a6ff;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
 
 .character-wrapper {
     position: relative;
-    width: 320px;
-    height: 320px;
+    width: 100%;
+    height: 340px;
     margin: 0 auto 20px;
-    border-radius: 15px;
+    border-radius: 18px;
     overflow: hidden;
-    border: 4px solid #30363d;
-} .character-wrapper img {
-    width: 50%;
-    height: 50%;
-    object-fit: contain;
-    background-color: #0d1117;
-    transition: filter 0.3s ease;
+    border: 3px solid #30363d;
+    background: #0d1117;
+    box-shadow: inset 0 4px 12px rgba(0,0,0,0.8);
 }
+
+/* Идеальная подгонка фото, чтобы было видно лицо без искажений */
+.character-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    transition: filter 0.3s ease, transform 0.2s ease;
+}
+
 .status-overlay {
     position: absolute;
-    bottom: 10px; left: 10px; right: 10px;
-    background: rgba(0, 0, 0, 0.6);
-    padding: 8px;
-    border-radius: 10px;
+    bottom: 12px; 
+    left: 12px; 
+    right: 12px;
+    background: rgba(13, 17, 23, 0.85);
+    backdrop-filter: blur(8px);
+    padding: 10px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .badge {
     display: inline-block;
-    padding: 4px 10px;
+    padding: 4px 12px;
     border-radius: 20px;
-    font-weight: bold;
-    font-size: 0.85rem;
-    margin-bottom: 5px;
+    font-weight: 600;
+    font-size: 0.8rem;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
-.badge.hungry { background: #da3633; color: white; }
-.badge.eating { background: #238636; color: white; }
-.badge.sleeping { background: #8957e5; color: white; }
+.badge.hungry { background: #f85149; color: white; box-shadow: 0 0 10px rgba(248,81,73,0.4); }
+.badge.eating { background: #2ea043; color: white; box-shadow: 0 0 10px rgba(46,160,67,0.4); }
+.badge.sleeping { background: #8957e5; color: white; box-shadow: 0 0 10px rgba(137,87,229,0.4); }
 
 #speech-bubble {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     color: #8b949e;
     font-style: italic;
-    min-height: 20px;
+    min-height: 18px;
 }
 
+/* Ночной режим сна */
 #sleep-overlay {
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(10, 20, 50, 0.7);
+    background: rgba(10, 15, 35, 0.75);
     display: flex; justify-content: center; align-items: center;
 }
 
 .hidden { display: none !important; }
 
-.zzz { position: absolute; font-size: 2rem; font-weight: bold; color: #a855f7; animation: floatZ 2s infinite ease-in-out; }
-.z1 { top: 40%; left: 45%; animation-delay: 0s; }
-.z2 { top: 30%; left: 55%; animation-delay: 0.6s; }
-.z3 { top: 20%; left: 65%; animation-delay: 1.2s; }
+.zzz {
+    position: absolute; 
+    font-size: 2.2rem; 
+    font-weight: 800; 
+    color: #d2a8ff; 
+    text-shadow: 0 0 10px rgba(210,168,255,0.5);
+    animation: floatZ 2.2s infinite ease-in-out; 
+}
+.z1 { top: 35%; left: 40%; animation-delay: 0s; }
+.z2 { top: 25%; left: 52%; animation-delay: 0.7s; }
+.z3 { top: 15%; left: 62%; animation-delay: 1.4s; }
 
 @keyframes floatZ {
-    0% { opacity: 0; transform: translateY(10px) scale(0.8); }
+    0% { opacity: 0; transform: translateY(15px) scale(0.7); }
     50% { opacity: 1; transform: translateY(-5px) scale(1.1); }
-    100% { opacity: 0; transform: translateY(-20px) scale(0.8); }
+    100% { opacity: 0; transform: translateY(-25px) scale(0.9); }
 }
 
+/* Анимация жевания */
 .character-wrapper img.chew {
-    animation: chewAnim 0.4s ease infinite;
+    animation: chewAnim 0.35s ease infinite alternate;
 }
 
 @keyframes chewAnim {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.05); }
-    100% { transform: scale(1); }
+    0% { transform: scale(1) translateY(0); }
+    100% { transform: scale(1.04) translateY(-3px); }
 }
 
+/* Эффект вспышки при еде */
 #eating-glow {
     position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-    background: radial-gradient(circle, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 70%);
-    animation: glowAnim 0.6s ease;
+    background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 70%);
+    animation: glowAnim 0.5s ease;
 }
 
 @keyframes glowAnim {
@@ -110,46 +142,67 @@ h1 { font-size: 1.4rem; margin-bottom: 20px; color: #58a6ff; }
     100% { opacity: 0; }
 }
 
-.progress-section { margin-bottom: 20px; }
+.progress-section { 
+    margin-bottom: 20px; 
+    background: #0d1117;
+    padding: 12px 16px;
+    border-radius: 14px;
+    border: 1px solid #30363d;
+}
 
 .progress-label {
     display: flex; justify-content: space-between;
-    font-size: 0.9rem; margin-bottom: 5px; color: #8b949e;
+    font-size: 0.85rem; margin-bottom: 8px; color: #8b949e;
+    font-weight: 600;
 }
 
 .progress-bar {
-    width: 100%; height: 16px;
-    background: #21262d; border-radius: 10px;
-    overflow: hidden; border: 1px solid #30363d;
+    width: 100%; height: 12px;
+    background: #21262d; border-radius: 6px;
+    overflow: hidden;
 }
 
 #fullness-fill {
     height: 100%;
-    background: linear-gradient(90deg, #ff7675, #55efc4);
+    background: linear-gradient(90deg, #f85149, #2ea043);
+    border-radius: 6px;
     transition: width 0.4s ease, background 0.4s ease;
 }
 
 .controls {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    gap: 10px;
 }
 
 button {
-    padding: 12px; border: none; border-radius: 10px;
-    font-weight: bold; cursor: pointer;
-    transition: background 0.2s, transform 0.1s;
-    display: flex; align-items: center; justify-content: center; gap: 8px;
+    padding: 12px 10px; 
+    border: 1px solid rgba(255,255,255,0.1); 
+    border-radius: 14px;
+    font-weight: 600; 
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex; align-items: center; justify-content: center; gap: 6px;
+    color: white;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
 
-button:active { transform: scale(0.96); }
+button:active { transform: scale(0.95); }
 
-.food-btn { background: #e17055; color: white; }
-.food-btn:hover { background: #d63031; }
+.food-btn { background: #da3633; }
+.food-btn:hover { background: #b62324; transform: translateY(-2px); }
 
 .sleep-btn {
-    background: #6c5ce7; color: white;
+    background: #8957e5; 
     grid-column: span 2;
 }
-.sleep-btn:hover:not(:disabled) { background: #a29bfe; }
+.sleep-btn:hover:not(:disabled) { background: #794ec0; transform: translateY(-2px); }
 .sleep-btn:disabled {
-    background: #4b6584; cursor: not-allowed; opacity: 0.6;
+    background: #21262d; 
+    color: #484f58;
+    border-color: #30363d;
+    cursor: not-allowed; 
+    box-shadow: none;
+    transform: none;
 }
